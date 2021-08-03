@@ -1,12 +1,10 @@
-import './App.css';
-import { Button } from 'react-bootstrap';
+import Article from "./Components/Article";
+import Guide from "./Components/Guide";
 
 function App() {
   return (
-    <div className="App">
-      <h1>My React App</h1>
-      <h2>Mark Nelyubin</h2>
-      <Button>text btn</Button>
+    <div>
+      <Guide />
     </div>
   );
 }
