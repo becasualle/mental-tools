@@ -3,9 +3,9 @@ import Guide from "./Components/Guide";
 
 function App() {
   return (
-    <div>
-      <Guide />
-    </div>
+
+    <Guide />
+
   );
 }
 
