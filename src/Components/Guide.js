@@ -1,7 +1,15 @@
+import React, { useState } from "react";
 import { Container, Form, Button, FloatingLabel } from "react-bootstrap";
+import { useGlobalContext } from "../context";
 
 const Guide = () => {
-    // const cognitiveDistortions = [{name: 'Катастрофизация', example:''}, 'Черно-белое мышление', 'Эмоциональное рассуждение', 'Усиление негатива', 'Минимизация позитива', 'Поспешные выводы', 'Предсказание будущего', 'Чтение мыслей', 'Обвинение себя', 'Обвинение других'];
+    const { notes, setNotes } = useGlobalContext();
+    const triggerField = React.useRef('');
+    const emotionField = React.useRef('');
+    const emotionPowerField = React.useRef('');
+    const challengeThoughtsField = React.useRef('');
+    const alternativeThoughtsField = React.useRef('');
+
     const cognitiveDistortions = [
         { name: 'Катастрофизация', example: 'Что если случится худшее?' },
         { name: 'Черно-белое мышление', example: 'Я полный неудачник' },
@@ -15,20 +23,34 @@ const Guide = () => {
         { name: 'Обвинение других', example: 'Это они во всем виноваты' }
     ];
 
+    // store active checkboxes values (instead of useRef)
+    const [checkedDistortions, setCheckedDistortions] = useState([]);
+
+    const handleSubmit = e => {
+        e.preventDefault();
+
+
+        const [triggerValue, emotionValue, emotionPowerValue, cognitiveDistortionsValue, challengeThoughtsValue, alternativeThoughtsValue] = [triggerField.current.value, emotionField.current.value, emotionPowerField.current.value, checkedDistortions, challengeThoughtsField.current.value, alternativeThoughtsField.current.value]
+        const newNote = { triggerValue, emotionValue, emotionPowerValue, cognitiveDistortionsValue, challengeThoughtsValue, alternativeThoughtsValue }
+        console.log(cognitiveDistortionsValue);
+        setNotes([...notes, newNote]);
+        console.log(notes);
+    }
+
     return (
         <Container className="d-flex align-items-center justify-content-center my-5">
 
-            <Form className="w-50">
+            <Form className="w-50" onSubmit={handleSubmit}>
 
                 <Form.Group className="mb-3" controlId="trigger">
                     <Form.Label>Ситуация / триггер</Form.Label>
-                    <Form.Control type="Text" placeholder="Изложите факты о ситуации" />
+                    <Form.Control type="Text" placeholder="Изложите факты о ситуации" ref={triggerField} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="emotion">
                     <Form.Label>Эмоция</Form.Label>
                     <FloatingLabel label="Что вы почувствовали?">
-                        <Form.Select aria-label="Emotions select">
+                        <Form.Select aria-label="Emotions select" ref={emotionField}>
                             <option>Выберите самую яркую эмоцию</option>
                             <option value="Anger">Гнев, возмущение</option>
                             <option value="Anxiety">Страх, тревога</option>
@@ -41,9 +63,9 @@ const Guide = () => {
                     </FloatingLabel>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="emotion value">
+                <Form.Group className="mb-3" controlId="emotion-power">
                     <Form.Label>Сила эмоции</Form.Label>
-                    <Form.Range min="1" max="10" />
+                    <Form.Range min="1" max="10" ref={emotionPowerField} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="automatic-thoughts">
@@ -59,15 +81,23 @@ const Guide = () => {
 
                 <Form.Group className="my-4" controlId="cognitive-distortions">
 
+
+
                     <Form.Label className="d-block">Когнитивные искажения</Form.Label>
                     <Form.Text>Выберите те когнитивные искажения, которые вы нашли в своих автоматических мыслях:</Form.Text>
                     <Container className="mt-3">
-                        {cognitiveDistortions.map(distortion =>
+                        {/* <Form.Check type="checkbox" id={`${cognitiveDistortions[0].name}`} label={`${cognitiveDistortions[0].name}`} ref={cognitiveDistortionsField} />
+                        <Form.Text>{cognitiveDistortions[0].example}</Form.Text> */}
+                        {cognitiveDistortions.map((distortion, index) =>
                             <div key={`key-${distortion.name}`} className="mb-3">
                                 <Form.Check
                                     type="checkbox"
-                                    id={`default-${distortion.name}`}
+                                    id={`${distortion.name}`}
                                     label={`${distortion.name}`}
+                                    // check what will be if i click and then click again and fix if bug
+                                    onClick={() => {
+                                        setCheckedDistortions([...checkedDistortions, distortion.name]);
+                                    }}
                                 />
                                 <Form.Text>{distortion.example}</Form.Text>
 
@@ -82,6 +112,7 @@ const Guide = () => {
                 </Form.Group>
 
 
+
                 <Form.Group className="mb-3" controlId="challenge-thoughts">
                     <Form.Label>Челлендж автоматических мыслей</Form.Label>
 
@@ -89,6 +120,7 @@ const Guide = () => {
                         as="textarea"
                         placeholder="Перечислите факты, опровергающие эти мысли"
                         style={{ height: '100px' }}
+                        ref={challengeThoughtsField}
                     />
 
                 </Form.Group>
@@ -99,6 +131,7 @@ const Guide = () => {
                         as="textarea"
                         placeholder="Напишите, как можно более реалистично и гибко подумать о ситуации"
                         style={{ height: '100px' }}
+                        ref={alternativeThoughtsField}
                     />
 
                 </Form.Group>
