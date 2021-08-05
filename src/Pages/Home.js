@@ -1,6 +1,13 @@
+import Navigation from "../Components/Navigation";
+
+
 const Home = () => {
     return (
-        <h1>Hello world!</h1>
+        <div>
+
+            <h1>Hello world!</h1>
+        </div>
+
     );
 }
 

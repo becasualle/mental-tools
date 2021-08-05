@@ -50,7 +50,7 @@ const Guide = () => {
     return (
         <Container className="d-flex flex-column align-items-center justify-content-center my-5">
 
-            <Form className="w-50" onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="trigger">
                     <Form.Label>Ситуация/Триггер</Form.Label>
                     <Form.Control type="Text" placeholder="Что случилось?" ref={titleField} />
@@ -60,7 +60,7 @@ const Guide = () => {
                     <Form.Control
                         as="textarea"
                         placeholder="Изложите факты о ситуации"
-                        style={{ height: '70px' }}
+                        style={{ height: '80px' }}
                         ref={triggerField}
                     />
                     {/* <Form.Control type="Text" placeholder="Изложите факты о ситуации" ref={triggerField} /> */}
@@ -93,7 +93,7 @@ const Guide = () => {
                     <Form.Control
                         as="textarea"
                         placeholder="Напишите мысли, которые возникли у вас в этой ситуации"
-                        style={{ height: '70px' }}
+                        style={{ height: '80px' }}
                         ref={automaticThoughtsField}
                     />
 
@@ -132,7 +132,7 @@ const Guide = () => {
                     <Form.Control
                         as="textarea"
                         placeholder="Перечислите факты, опровергающие эти мысли"
-                        style={{ height: '70px' }}
+                        style={{ height: '80px' }}
                         ref={challengeThoughtsField}
                     />
 
@@ -143,7 +143,7 @@ const Guide = () => {
                     <Form.Control
                         as="textarea"
                         placeholder="Напишите, как можно более реалистично и гибко подумать о ситуации"
-                        style={{ height: '70px' }}
+                        style={{ height: '80px' }}
                         ref={alternativeThoughtsField}
                     />
 

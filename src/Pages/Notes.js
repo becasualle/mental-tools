@@ -8,10 +8,10 @@ const Notes = () => {
     const { notes } = useGlobalContext();
     return (
         <Container>
-            <h1>
-                Ваши записи
+            <h1 className="mt-5 text-center">
+                Мои записи
             </h1>
-            <Container fluid>
+            <Container fluid className="my-4">
                 <Row xs={1} md={3} xl={4} className="g-4">
                     {notes.map((note) => {
                         return (
@@ -19,9 +19,13 @@ const Notes = () => {
                                 <Card>
                                     <Card.Header>{note.titleValue}</Card.Header>
                                     <Card.Body>
-                                        <Card.Title>Описание ситуации</Card.Title>
+
                                         <Card.Text>{note.triggerValue}</Card.Text>
-                                        <Link to={`/note/${note.noteID}`}><Button variant="primary">Подробнее</Button></Link>
+                                        <div class="d-grid">
+                                            <Button variant="outline-primary" size="sm" as={Link} to={`/note/${note.noteID}`} >Читать описание</Button>
+                                        </div>
+
+
                                     </Card.Body>
                                 </Card>
                             </Col>
@@ -29,7 +33,7 @@ const Notes = () => {
                     })}
                 </Row>
             </Container>
-            <Link to="/"><Button>Назад домой</Button></Link>
+
         </Container>
     )
 }
