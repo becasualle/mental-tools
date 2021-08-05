@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Form, Button, FloatingLabel } from "react-bootstrap";
 import { useGlobalContext } from "../context";
+import { useHistory } from "react-router-dom";
+import Note from "../Pages/Note";
+import Notes from "../Pages/Notes";
 
 const Guide = () => {
     const { notes, setNotes } = useGlobalContext();
+    const titleField = React.useRef('');
     const triggerField = React.useRef('');
     const emotionField = React.useRef('');
     const emotionPowerField = React.useRef('');
+    const automaticThoughtsField = React.useRef('');
     const challengeThoughtsField = React.useRef('');
     const alternativeThoughtsField = React.useRef('');
+
+    let history = useHistory();
+
 
     const cognitiveDistortions = [
         { name: 'Катастрофизация', example: 'Что если случится худшее?' },
@@ -30,21 +38,32 @@ const Guide = () => {
         e.preventDefault();
 
 
-        const [triggerValue, emotionValue, emotionPowerValue, cognitiveDistortionsValue, challengeThoughtsValue, alternativeThoughtsValue] = [triggerField.current.value, emotionField.current.value, emotionPowerField.current.value, checkedDistortions, challengeThoughtsField.current.value, alternativeThoughtsField.current.value]
-        const newNote = { triggerValue, emotionValue, emotionPowerValue, cognitiveDistortionsValue, challengeThoughtsValue, alternativeThoughtsValue }
-        console.log(cognitiveDistortionsValue);
+        const [titleValue, triggerValue, emotionValue, emotionPowerValue, automaticThoughtsValue, cognitiveDistortionsValue, challengeThoughtsValue, alternativeThoughtsValue] = [titleField.current.value, triggerField.current.value, emotionField.current.value, emotionPowerField.current.value, automaticThoughtsField.current.value, checkedDistortions, challengeThoughtsField.current.value, alternativeThoughtsField.current.value]
+        const noteID = new Date().getTime().toString();
+        const newNote = { noteID, titleValue, triggerValue, emotionValue, emotionPowerValue, automaticThoughtsValue, cognitiveDistortionsValue, challengeThoughtsValue, alternativeThoughtsValue }
         setNotes([...notes, newNote]);
-        console.log(notes);
+
+        history.push(`/note/${noteID}`)
+
     }
 
     return (
-        <Container className="d-flex align-items-center justify-content-center my-5">
+        <Container className="d-flex flex-column align-items-center justify-content-center my-5">
 
             <Form className="w-50" onSubmit={handleSubmit}>
-
                 <Form.Group className="mb-3" controlId="trigger">
-                    <Form.Label>Ситуация / триггер</Form.Label>
-                    <Form.Control type="Text" placeholder="Изложите факты о ситуации" ref={triggerField} />
+                    <Form.Label>Ситуация/Триггер</Form.Label>
+                    <Form.Control type="Text" placeholder="Что случилось?" ref={titleField} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="trigger">
+                    <Form.Label>Описание ситуации</Form.Label>
+                    <Form.Control
+                        as="textarea"
+                        placeholder="Изложите факты о ситуации"
+                        style={{ height: '70px' }}
+                        ref={triggerField}
+                    />
+                    {/* <Form.Control type="Text" placeholder="Изложите факты о ситуации" ref={triggerField} /> */}
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="emotion">
@@ -74,14 +93,13 @@ const Guide = () => {
                     <Form.Control
                         as="textarea"
                         placeholder="Напишите мысли, которые возникли у вас в этой ситуации"
-                        style={{ height: '100px' }}
+                        style={{ height: '70px' }}
+                        ref={automaticThoughtsField}
                     />
 
                 </Form.Group>
 
                 <Form.Group className="my-4" controlId="cognitive-distortions">
-
-
 
                     <Form.Label className="d-block">Когнитивные искажения</Form.Label>
                     <Form.Text>Выберите те когнитивные искажения, которые вы нашли в своих автоматических мыслях:</Form.Text>
@@ -106,12 +124,7 @@ const Guide = () => {
                         )}
                     </Container>
 
-
-
-
                 </Form.Group>
-
-
 
                 <Form.Group className="mb-3" controlId="challenge-thoughts">
                     <Form.Label>Челлендж автоматических мыслей</Form.Label>
@@ -119,7 +132,7 @@ const Guide = () => {
                     <Form.Control
                         as="textarea"
                         placeholder="Перечислите факты, опровергающие эти мысли"
-                        style={{ height: '100px' }}
+                        style={{ height: '70px' }}
                         ref={challengeThoughtsField}
                     />
 
@@ -130,7 +143,7 @@ const Guide = () => {
                     <Form.Control
                         as="textarea"
                         placeholder="Напишите, как можно более реалистично и гибко подумать о ситуации"
-                        style={{ height: '100px' }}
+                        style={{ height: '70px' }}
                         ref={alternativeThoughtsField}
                     />
 
@@ -139,10 +152,12 @@ const Guide = () => {
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
+
+
+
             </Form>
 
         </Container>
-
     );
 }
 
