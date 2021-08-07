@@ -6,7 +6,7 @@ const Error = () => {
     return (
         <Container>
             <h1>
-                Упс! Ошибочка вышла.  <Badge bg="danger">Бля :(</Badge>
+                Упс! Ошибочка вышла.  <Badge bg="danger">Сорян :(</Badge>
             </h1>
             <Link to="/"><Button>Назад домой</Button></Link>
         </Container>

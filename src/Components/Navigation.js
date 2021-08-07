@@ -5,7 +5,7 @@ const Navigation = () => {
     return (
         <Navbar bg="primary" variant="dark" expand="md" >
             <Container >
-                <Navbar.Brand as={Link} to="/" className="display-6">Дневник мыслей</Navbar.Brand>
+                <Navbar.Brand as={Link} to="/" className="display-6">SoftSkills.</Navbar.Brand>
 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
