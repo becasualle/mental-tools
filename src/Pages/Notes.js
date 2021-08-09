@@ -5,7 +5,7 @@ import Note from './Note';
 import { useGlobalContext } from "../context";
 
 const Notes = () => {
-    const { notes } = useGlobalContext();
+    const { notes, deleteCards, deleteSingleCard } = useGlobalContext();
     return (
         <Container>
             <h1 className="mt-5 text-center">
@@ -22,7 +22,8 @@ const Notes = () => {
 
                                         <Card.Text>{note.triggerValue}</Card.Text>
                                         <div class="d-grid">
-                                            <Button variant="outline-primary" size="sm" as={Link} to={`/note/${note.noteID}`} >Читать описание</Button>
+                                            <Button variant="outline-primary" size="sm" className="mt-2" as={Link} to={`/mental-tools/note/${note.noteID}`} >Читать описание</Button>
+                                            <Button variant="outline-danger" size="sm" className="mt-2" onClick={() => deleteSingleCard(note.noteID)}>Удалить</Button>
                                         </div>
 
 
@@ -32,7 +33,12 @@ const Notes = () => {
                         )
                     })}
                 </Row>
+                <Row md={3} className="justify-content-center">
+                    {notes.length ? <Button variant="outline-danger" onClick={deleteCards}>Удалить все записи</Button> : <p className="mt-3">К сожалению, вы еще не сделали ни одной записи :( </p>}
+                </Row>
+
             </Container>
+
 
         </Container>
     )

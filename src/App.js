@@ -12,16 +12,16 @@ function App() {
     <Router>
       <Navigation />
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/mental-tools">
           <Home />
         </Route>
-        <Route exact path="/guide">
+        <Route exact path="/mental-tools/guide">
           <Guide />
         </Route>
-        <Route exact path="/notes">
+        <Route exact path="/mental-tools/notes">
           <Notes />
         </Route>
-        <Route exact path="/note/:id" children={<Note />}>
+        <Route exact path="/mental-tools/note/:id" children={<Note />}>
         </Route>
         <Route path="*">
           <Error />

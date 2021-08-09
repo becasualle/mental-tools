@@ -1,4 +1,4 @@
-import { Row, Col, Button, Modal, Form } from 'react-bootstrap';
+import { Button, Modal, Form } from 'react-bootstrap';
 import { useState } from 'react';
 
 
@@ -11,7 +11,7 @@ const ModalComp = () => {
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
+                Оставить почту
             </Button>
 
             <Modal show={show} onHide={handleClose}>
@@ -24,10 +24,10 @@ const ModalComp = () => {
                     </p>
                     <Form>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Напишите ваш email</Form.Label>
+                            <Form.Label>Напишите ваш email:</Form.Label>
                             <Form.Control type="email" placeholder="Например, mark@mail.ru" />
                             <Form.Text className="text-muted">
-                                Мы никогда не делимся контактами с кем-либо еще.
+                                Мы никогда не делимся вашими контактами с третьими лицами.
                             </Form.Text>
                         </Form.Group>
                     </Form>

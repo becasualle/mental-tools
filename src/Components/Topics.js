@@ -1,4 +1,5 @@
-import { Container, Accordion, Row, Col } from "react-bootstrap";
+import { Container, Accordion, Row, Col, Image } from "react-bootstrap";
+import workImg from '../img/inwork.png'
 
 
 const Topics = () => {
@@ -6,8 +7,8 @@ const Topics = () => {
         <Container fluid="md">
             <Row className="my-5 g-5 justify-content-around align-items-center">
 
-                <Col xs={6} sm={6} lg={4}>
-                    <img src="https://images.unsplash.com/photo-1551636898-47668aa61de2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80" className="img-fluid" alt="ebook" />
+                <Col lg={6}>
+                    <Image src={workImg} fluid alt="work in progress"></Image>
                 </Col>
 
                 <Col lg={6}>

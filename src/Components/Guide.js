@@ -43,7 +43,7 @@ const Guide = () => {
         const newNote = { noteID, titleValue, triggerValue, emotionValue, emotionPowerValue, automaticThoughtsValue, cognitiveDistortionsValue, challengeThoughtsValue, alternativeThoughtsValue }
         setNotes([...notes, newNote]);
 
-        history.push(`/note/${noteID}`)
+        history.push(`/mental-tools/note/${noteID}`)
 
     }
 
