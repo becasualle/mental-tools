@@ -2,7 +2,9 @@ import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import Hero from '../Components/Hero'
 import CustomCards from "../Components/CustomCards";
 import Featurette from "../Components/Featurette";
-import Topics from "../Components/Topics"
+import Topics from "../Components/Topics";
+import HomeModal from "../Components/HomeModal"
+
 
 const Home = () => {
     return (
@@ -11,6 +13,8 @@ const Home = () => {
             <CustomCards />
             <Featurette />
             <Topics />
+            <HomeModal />
+
         </Container>
 
     );

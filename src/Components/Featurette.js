@@ -1,68 +1,39 @@
+import { useState } from "react";
 import { Container } from "react-bootstrap"
+import SingleFeature from "./SingleFeature";
 
 const Featurette = () => {
+
+    const [featuresContent, setFeatureContent] = useState([{
+        title: 'Практикуйтесь. ',
+        titleMuted: 'Вместо чтения очередной книги.',
+        para: 'Написано множество замечательных книг по психологии, переговорам, публичным выступлениям. Проблема лишь в том, что книга не дает вам навыков. Вы прочитали книгу, узнали новую информацию, но в вашей жизни по-большому счету ничего не изменилось. SoftSkill - это игровая площадка для тренировки ваших навыков. Регулярно делайте упражнения, чтобы увидеть изменения. ',
+        img: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1049&q=80',
+        imageLeft: false
+    }, {
+        title: 'Научно обоснованные знания. ',
+        titleMuted: 'Вместо некомпетентных коучей, психологов и шарлатанов',
+        para: 'Ваш коуч заставляет вас читать стихи в метро и бегать голым вокруг собственного дома, чтобы перестать бояться людей? Ваш психоаналитик уже два года копается в ваших историях из детства и отношениях с родителями, но вы не чувствуете прогресса? В наших психологических упражнениях мы используем подходы из научно доказанного направления когнитивно-поведенческой терапии. А упражнения и статьи по другим темам подкрепляем ссылками на мета-анализы и свежие научные исследования.',
+        img: 'https://images.pexels.com/photos/7089290/pexels-photo-7089290.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+        imageLeft: true
+    }, {
+        title: 'Бесплатно. ',
+        titleMuted: 'Вместо десятков тысяч рублей за тренинги, кусы и сеансы',
+        para: 'Мы хотим, чтобы любой человек мог получить помощь и улучшить свои гибкие навыки. Большинство материалов на платформе бесплатны, а дополнительные модули стоят дешевле, чем один сеанс у психотерапевта',
+        img: 'https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+        imageLeft: false
+    }])
+
+    console.log(featuresContent);
+
     return (
         <Container className="marketing">
-            <hr className="featurette-divider" />
-
-            <div className="row featurette">
-                <div className="col-md-7">
-                    <h2 className="featurette-heading">First featurette heading. <span className="text-muted">It’ll blow your mind.</span>
-                    </h2>
-                    <p className="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose
-                        here.</p>
-                </div>
-                <div className="col-md-5">
-                    <svg className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                        height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-                        preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-                    </svg>
-
-                </div>
-            </div>
-
-            <hr className="featurette-divider" />
-
-            <div className="row featurette">
-                <div className="col-md-7 order-md-2">
-                    <h2 className="featurette-heading">Oh yeah, it’s that good. <span className="text-muted">See for yourself.</span></h2>
-                    <p className="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this
-                        layout would work with some actual real-world content in place.</p>
-                </div>
-                <div className="col-md-5 order-md-1">
-                    <svg className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                        height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-                        preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-                    </svg>
-
-                </div>
-            </div>
-
-            <hr className="featurette-divider" />
-
-            <div className="row featurette">
-                <div className="col-md-7">
-                    <h2 className="featurette-heading">And lastly, this one. <span className="text-muted">Checkmate.</span></h2>
-                    <p className="lead">And yes, this is the last block of representative placeholder content. Again, not really
-                        intended to be actually read, simply here to give you a better view of what this would look like with some
-                        actual content. Your content.</p>
-                </div>
-                <div className="col-md-5">
-                    <svg className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                        height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-                        preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-                    </svg>
-
-                </div>
-            </div>
-
-            <hr className="featurette-divider" />
+            {featuresContent.map((feature, index) => {
+                console.log(feature);
+                return (
+                    <SingleFeature key={index} {...feature} />
+                );
+            })}
         </Container>
     );
 }
