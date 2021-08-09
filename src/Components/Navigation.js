@@ -12,7 +12,7 @@ const Navigation = () => {
                     <Nav className="me-auto">
 
                         <Nav.Link as={Link} to="/mental-tools/">Главная</Nav.Link>
-
+                        <Nav.Link as={Link} to="/mental-tools/course">Курсы</Nav.Link>
                         <Nav.Link as={Link} to="/mental-tools/guide">Анализ мыслей</Nav.Link>
                         <Nav.Link as={Link} to="/mental-tools/notes">Мои записи</Nav.Link>
 

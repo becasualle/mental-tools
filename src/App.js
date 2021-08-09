@@ -5,6 +5,7 @@ import Notes from './Pages/Notes';
 import Note from './Pages/Note';
 import Guide from "./Components/Guide";
 import Home from './Pages/Home';
+import Course from './Pages/Course';
 import Navigation from './Components/Navigation';
 
 function App() {
@@ -14,6 +15,9 @@ function App() {
       <Switch>
         <Route exact path="/mental-tools">
           <Home />
+        </Route>
+        <Route exact path="/mental-tools/course">
+          <Course />
         </Route>
         <Route exact path="/mental-tools/guide">
           <Guide />

@@ -15,6 +15,7 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
     const [notes, setNotes] = useState(getLocalStorage());
+    const [articles, setArticles] = useState([]);
 
     const deleteCards = () => {
         setNotes([]);
@@ -26,7 +27,7 @@ const AppProvider = ({ children }) => {
 
     useEffect(() => { localStorage.setItem('notes', JSON.stringify(notes)) }, [notes]);
 
-    return <AppContext.Provider value={{ notes, setNotes, deleteCards, deleteSingleCard }}> {children} </AppContext.Provider>
+    return <AppContext.Provider value={{ notes, setNotes, deleteCards, deleteSingleCard, articles, setArticles }}> {children} </AppContext.Provider>
 };
 
 export const useGlobalContext = () => useContext(AppContext);
