@@ -13,9 +13,23 @@ const getLocalStorage = () => {
 };
 const AppContext = React.createContext();
 
+// const url = 'https://spreadsheets.google.com/feeds/cells/1EWnNdrY6GIjxPb6LOAMvr4mePyIDqaJ4Ph1D4qcLDeE/od6/public/basic?alt=json';
+
 const AppProvider = ({ children }) => {
     const [notes, setNotes] = useState(getLocalStorage());
     const [articles, setArticles] = useState([]);
+
+    // const fetchData = async () => {
+    //     try {
+    //         const response = await fetch(url);
+    //         const data = await response.json();
+    //         console.log(data)
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
+
+    // useEffect(() => { fetchData() }, [url, fetchData]);
 
     const deleteCards = () => {
         setNotes([]);
