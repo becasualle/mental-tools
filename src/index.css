@@ -126,3 +126,12 @@ section {
       font-size: 3.5rem;
     }
   }
+
+  /* Article */
+  @media (max-width: 768px) { 
+    #article {
+      padding-top: 2rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }

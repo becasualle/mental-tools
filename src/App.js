@@ -6,6 +6,7 @@ import Note from './Pages/Note';
 import Guide from "./Components/Guide";
 import Home from './Pages/Home';
 import Course from './Pages/Course';
+import Article from './Pages/Article';
 import Navigation from './Components/Navigation';
 
 function App() {
@@ -19,14 +20,15 @@ function App() {
         <Route exact path="/mental-tools/course">
           <Course />
         </Route>
+        <Route exact path="/mental-tools/article/:id" children={<Article />} />
         <Route exact path="/mental-tools/guide">
           <Guide />
         </Route>
         <Route exact path="/mental-tools/notes">
           <Notes />
         </Route>
-        <Route exact path="/mental-tools/note/:id" children={<Note />}>
-        </Route>
+        <Route exact path="/mental-tools/note/:id" children={<Note />} />
+
         <Route path="*">
           <Error />
         </Route>

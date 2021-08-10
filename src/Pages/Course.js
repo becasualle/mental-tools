@@ -1,44 +1,14 @@
-import { Container, Row, Col, Button, Image, Card } from "react-bootstrap";
+import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 import { useGlobalContext } from "../context";
 import { useEffect } from "react";
 
 const Course = () => {
-    const { articles, setArticles } = useGlobalContext();
-    const cognitiveDistortionCourse = {
-        courseTitle: 'Когнитивные искажения',
-        courseDescription: 'Когнитивное искажение — это систематические ошибки в мышлении. Под воздействием когнитивных искажений формируется «субъективная социальная реальность», которая влияет на поведение человека. Умение определять когнитивные искажения и очищать от них свои мысли помогает значительно снизить количество и силу негативных эмоций. ',
-        courseArticles: [{
-            id: 1,
-            title: 'Черно-белое мышление',
-            imgLink: 'https://images.unsplash.com/photo-1472566316349-bce77aa2a778?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
-            engName: 'All-or-Nothing Thinking / Polarized Thinking / Black-and-White Thinking',
-            description: 'Когда человек в своей оценке впадает в крайности и оценивает объект либо как совершенно восхитительный, либо как совершенно ужасный и исключает из восприятия множество оттенков серого. ',
-            examples: ['«Я всегда проваливаюсь, когда пробую делать что-то новое»', 'Женщина съедает ложку мороженого. Она считает себя полной неудачницей из-за нарушения диеты. В конце концов съедает целое ведро мороженого']
-        },
-        {
-            id: 2,
-            title: 'Черно-белое мышлениеdas',
-            imgLink: 'https://images.unsplash.com/photo-1472566316349-bce77aa2a778?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
-            engName: 'All-or-Nothing Thinking / Polarized Thinking / Black-and-White Thinking',
-            description: 'Когда человек в своей оценке впадает в крайности и оценивает объект либо как совершенно восхитительный, либо как совершенно ужасный и исключает из восприятия множество оттенков серого. ',
-            examples: ['«Я всегда проваливаюсь, когда пробую делать что-то новое»', 'Женщина съедает ложку мороженого. Она считает себя полной неудачницей из-за нарушения диеты. В конце концов съедает целое ведро мороженого']
-        },
-        {
-            id: 3,
-            title: 'Черно-белое мышлениgfsdе',
-            imgLink: 'https://images.unsplash.com/photo-1472566316349-bce77aa2a778?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
-            engName: 'All-or-Nothing Thinking / Polarized Thinking / Black-and-White Thinking',
-            description: 'Когда человек в своей оценке впадает в крайности и оценивает объект либо как совершенно восхитительный, либо как совершенно ужасный и исключает из восприятия множество оттенков серого. ',
-            examples: ['«Я всегда проваливаюсь, когда пробую делать что-то новое»', 'Женщина съедает ложку мороженого. Она считает себя полной неудачницей из-за нарушения диеты. В конце концов съедает целое ведро мороженого']
-        }]
-    }
-
-    useEffect(() => setArticles([cognitiveDistortionCourse]), [])
-    console.log(articles)
+    const { courses } = useGlobalContext();
 
     return (
         <>
-            {articles.map((course, index) => {
+            {courses.map((course, index) => {
                 const courseArticles = course.courseArticles;
 
                 return (
@@ -50,7 +20,7 @@ const Course = () => {
                                         <h1 className="fw-light">{course.courseTitle}</h1>
                                         <p className="lead text-muted">{course.courseDescription}</p>
                                         <p>
-                                            <Button className="btn btn-primary my-2">Открыть первый урок</Button>
+                                            <Button className="btn btn-primary my-2">Начать с первого урока</Button>
                                         </p>
                                     </Col>
                                 </Row>
@@ -73,7 +43,8 @@ const Course = () => {
                                                     </Card.Text>
                                                     <div className="d-flex justify-content-between align-items-center">
                                                         <div className="btn-group">
-                                                            <button type="button" className="btn btn-sm btn-outline-secondary">Читать</button>
+                                                            <Link className="btn btn-sm btn-outline-secondary" to={`/mental-tools/article/${article.id}`}>Читать</Link>
+
                                                             {/* <button type="button" className="btn btn-sm btn-outline-secondary">Edit</button> */}
                                                         </div>
                                                         <small className="text-muted">9 мин</small>

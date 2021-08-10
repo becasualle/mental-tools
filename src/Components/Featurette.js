@@ -24,12 +24,10 @@ const Featurette = () => {
         imageLeft: false
     }])
 
-    console.log(featuresContent);
 
     return (
         <Container className="marketing">
             {featuresContent.map((feature, index) => {
-                console.log(feature);
                 return (
                     <SingleFeature key={index} {...feature} />
                 );
