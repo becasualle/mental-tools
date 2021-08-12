@@ -1,10 +1,9 @@
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useGlobalContext } from "../context";
+import { courses } from "../data";
 
 const Article = () => {
-    const { courses } = useGlobalContext();
     const { id } = useParams();
     // const [article, setArticle] = useState([]);
     // console.log(courses)

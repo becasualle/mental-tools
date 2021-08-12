@@ -1,10 +1,9 @@
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { Link } from 'react-router-dom';
-import { useGlobalContext } from "../context";
-import { useEffect } from "react";
+import { courses } from "../data";
+import CourseModal from "../Components/CourseModal";
 
 const Course = () => {
-    const { courses } = useGlobalContext();
 
     return (
         <>
@@ -20,7 +19,7 @@ const Course = () => {
                                         <h1 className="fw-light">{course.courseTitle}</h1>
                                         <p className="lead text-muted">{course.courseDescription}</p>
                                         <p>
-                                            <Button className="btn btn-primary my-2">Начать с первого урока</Button>
+                                            <CourseModal />
                                         </p>
                                     </Col>
                                 </Row>
