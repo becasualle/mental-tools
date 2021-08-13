@@ -24,7 +24,7 @@ const Article = () => {
                             <p className="lead">
                                 {article.engName}
                             </p>
-                            <Image src={article.imgLink} fluid />
+                            <Image src={article.imgLink} fluid className="my-3" />
                             <p className="fs-5 mt-3">{article.description}</p>
                             <p className="fs-5 fw-bold">Примеры:</p>
 

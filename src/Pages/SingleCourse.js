@@ -18,7 +18,7 @@ const SingleCourse = () => {
                             <h1 className="fw-light">{courseTitle}</h1>
                             <p className="lead text-muted">{courseDescription}</p>
                             <p>
-                                <CourseModal />
+                                <CourseModal courseID={courseID} />
                             </p>
                         </Col>
                     </Row>
@@ -39,17 +39,17 @@ const SingleCourse = () => {
                                         <Card.Text>
                                             {article.engName}
                                         </Card.Text>
-                                        <div className="d-flex justify-content-between align-items-center">
-                                            <div className="btn-group">
+                                        <div className="d-flex justify-content-center align-items-center">
+                                            <div className="btn-group w-100 pt-3">
 
                                                 {courseID === 'tackling-negative-thoughts' ?
-                                                    <Link className="btn btn-sm btn-outline-secondary" to={{
+                                                    <Link className="btn btn-sm btn-outline-primary" to={{
                                                         pathname: `/course/tackling-negative-thoughts/${article.id}`,
                                                         state: {
                                                             courseID
                                                         }
                                                     }}>Читать</Link> :
-                                                    <Link className="btn btn-sm btn-outline-secondary" to={{
+                                                    <Link className="btn btn-sm btn-outline-primary" to={{
                                                         pathname: `/course/cognitive-distortions/${article.id}`,
                                                         state: {
                                                             courseID
@@ -58,7 +58,7 @@ const SingleCourse = () => {
                                                 }
 
                                             </div>
-                                            <small className="text-muted">9 мин</small>
+                                            {/* <small className="text-muted">9 мин</small> */}
                                         </div>
                                     </Card.Body>
                                 </Card>

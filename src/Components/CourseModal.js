@@ -2,11 +2,13 @@ import { Button, Modal, Form } from 'react-bootstrap';
 import { useState } from 'react';
 import { courses } from '../data';
 
-const CourseModal = () => {
+const CourseModal = ({ courseID }) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const currentCourse = courses.find(course => course.courseID === courseID);
+
 
     return (
         <>
@@ -19,16 +21,12 @@ const CourseModal = () => {
                 centered>
 
                 <Modal.Header closeButton>
-                    <Modal.Title id="contained-modal-title-vcenter">{courses[0].courseTitle}</Modal.Title>
+                    <Modal.Title id="contained-modal-title-vcenter" className="px-5">{currentCourse.courseTitle}</Modal.Title>
                 </Modal.Header>
 
-                <Modal.Body>
-                    <h4>Centered Modal</h4>
-                    <p>
-                        Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                        dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.
-                    </p>
+                <Modal.Body >
+                    {currentCourse.courseModalDesc.map(para => <p className="px-5">{para}</p>)}
+
                 </Modal.Body>
 
                 <Modal.Footer>

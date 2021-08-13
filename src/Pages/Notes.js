@@ -33,7 +33,12 @@ const Notes = () => {
                     })}
                 </Row>
                 <Row md={3} className="justify-content-center">
-                    {notes.length ? <Button variant="outline-danger" onClick={deleteCards}>Удалить все записи</Button> : <p className="mt-3">К сожалению, вы еще не сделали ни одной записи :( </p>}
+                    {notes.length ? <Button variant="outline-danger" onClick={deleteCards}>Удалить все записи</Button> :
+                        <div className="d-flex flex-column justify-content-center">
+                            <p className="mt-3">К сожалению, вы еще не сделали ни одной записи :( </p>
+                            <Link className="btn btn-outline-primary mt-3 position-relative top-0 end-0" to={`/guide`}>Исправить это недоразумение!</Link>
+                        </div>
+                    }
                 </Row>
 
             </Container>

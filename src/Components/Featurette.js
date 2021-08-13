@@ -26,7 +26,7 @@ const Featurette = () => {
 
 
     return (
-        <Container className="marketing">
+        <Container className="marketing" id="detais">
             {featuresContent.map((feature, index) => {
                 return (
                     <SingleFeature key={index} {...feature} />

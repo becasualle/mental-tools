@@ -23,7 +23,7 @@ const ArticleStandard = () => {
                     <Col sm={12} md={10} xl={8}>
                         <section id="article">
                             <h2 className="display-4">{article.title}</h2>
-                            <Image src={article.imgLink} fluid />
+                            <Image src={article.imgLink} fluid className="my-3" />
 
                             {article.description.map((para, index) =>
                                 <p className="fs-5 mt-3" key={index}>
@@ -34,7 +34,7 @@ const ArticleStandard = () => {
                             {article.content.map((piece, index) => {
                                 return (
                                     <div>
-                                        <h3 className="display-5" key={index}>{piece.subtitle}</h3>
+                                        <h3 className="h-4 pt-3" key={index}>{piece.subtitle}</h3>
                                         {
                                             piece.paragraphs.map((para, index) =>
                                                 <p className="fs-5 mt-3" key={index}>
@@ -47,9 +47,8 @@ const ArticleStandard = () => {
                             })}
 
                             <div className="d-flex justify-content-center">
-                                <Link className="btn btn-outline-secondary mt-3 position-relative top-0 end-0" to={`/course`}>Назад к списку статей</Link>
+                                <Link className="btn btn-outline-secondary mt-3 position-relative top-0 end-0" to={`/course/tackling-negative-thoughts`}>Назад к списку статей</Link>
                             </div>
-
                         </section>
                     </Col>
                 </Row>
