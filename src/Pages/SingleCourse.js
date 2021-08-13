@@ -41,15 +41,16 @@ const SingleCourse = () => {
                                         </Card.Text>
                                         <div className="d-flex justify-content-between align-items-center">
                                             <div className="btn-group">
+
                                                 {courseID === 'tackling-negative-thoughts' ?
                                                     <Link className="btn btn-sm btn-outline-secondary" to={{
-                                                        pathname: `/mental-tools/course/tackling-negative-thoughts/${article.id}`,
+                                                        pathname: `/course/tackling-negative-thoughts/${article.id}`,
                                                         state: {
                                                             courseID
                                                         }
                                                     }}>Читать</Link> :
                                                     <Link className="btn btn-sm btn-outline-secondary" to={{
-                                                        pathname: `/mental-tools/course/cognitive-distortions/${article.id}`,
+                                                        pathname: `/course/cognitive-distortions/${article.id}`,
                                                         state: {
                                                             courseID
                                                         }

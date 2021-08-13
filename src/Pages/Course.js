@@ -1,7 +1,7 @@
-import { Container, Row, Col, Card, Jumbotron } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import { courses } from "../data";
-import CourseModal from "../Components/CourseModal";
+
 
 const Course = () => {
 
@@ -13,7 +13,7 @@ const Course = () => {
                         <div class="container-fluid py-5 ">
                             <h1 class="display-5 fw-bold">{course.courseTitle}</h1>
                             <p class="col-md-12 fs-4">{course.courseDescription}</p>
-                            <Link className="btn btn-primary btn-lg" to={`/mental-tools/course/${course.courseID}`}>Изучить</Link>
+                            <Link className="btn btn-primary btn-lg" to={`/course/${course.courseID}`}>Изучить</Link>
                         </div>
                     </div>
                 </Container>

@@ -32,7 +32,7 @@ const Article = () => {
                                 {article.examples.map((example, index) => <li key={index} className="fs-5">{example};</li>)}
                             </ul>
                             <div className="d-flex justify-content-center">
-                                <Link className="btn btn-outline-secondary mt-3 position-relative top-0 end-0" to={`/mental-tools/course/cognitive-distortions`}>Назад к списку статей</Link>
+                                <Link className="btn btn-outline-secondary mt-3 position-relative top-0 end-0" to={`/course/cognitive-distortions`}>Назад к списку статей</Link>
                             </div>
 
                         </section>

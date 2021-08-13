@@ -47,7 +47,7 @@ const ArticleStandard = () => {
                             })}
 
                             <div className="d-flex justify-content-center">
-                                <Link className="btn btn-outline-secondary mt-3 position-relative top-0 end-0" to={`/mental-tools/course`}>Назад к списку статей</Link>
+                                <Link className="btn btn-outline-secondary mt-3 position-relative top-0 end-0" to={`/course`}>Назад к списку статей</Link>
                             </div>
 
                         </section>

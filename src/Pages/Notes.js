@@ -22,10 +22,9 @@ const Notes = () => {
 
                                         <Card.Text>{note.triggerValue}</Card.Text>
                                         <div class="d-grid">
-                                            <Button variant="outline-primary" size="sm" className="mt-2" as={Link} to={`/mental-tools/note/${note.noteID}`} >Читать описание</Button>
+                                            <Button variant="outline-primary" size="sm" className="mt-2" as={Link} to={`/notes/note/${note.noteID}`} >Читать описание</Button>
                                             <Button variant="outline-danger" size="sm" className="mt-2" onClick={() => deleteSingleCard(note.noteID)}>Удалить</Button>
                                         </div>
-
 
                                     </Card.Body>
                                 </Card>
@@ -38,7 +37,6 @@ const Notes = () => {
                 </Row>
 
             </Container>
-
 
         </Container>
     )

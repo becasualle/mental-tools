@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Container, Form, Button, FloatingLabel } from "react-bootstrap";
 import { useGlobalContext } from "../context";
 import { useHistory } from "react-router-dom";
-import Note from "../Pages/Note";
-import Notes from "../Pages/Notes";
+
 
 const Guide = () => {
     const { notes, setNotes } = useGlobalContext();
@@ -43,7 +42,7 @@ const Guide = () => {
         const newNote = { noteID, titleValue, triggerValue, emotionValue, emotionPowerValue, automaticThoughtsValue, cognitiveDistortionsValue, challengeThoughtsValue, alternativeThoughtsValue }
         setNotes([...notes, newNote]);
 
-        history.push(`/mental-tools/note/${noteID}`)
+        history.push(`/notes/note/${noteID}`)
 
     }
 
@@ -104,8 +103,6 @@ const Guide = () => {
                     <Form.Label className="d-block">Когнитивные искажения</Form.Label>
                     <Form.Text>Выберите те когнитивные искажения, которые вы нашли в своих автоматических мыслях:</Form.Text>
                     <Container className="mt-3">
-                        {/* <Form.Check type="checkbox" id={`${cognitiveDistortions[0].name}`} label={`${cognitiveDistortions[0].name}`} ref={cognitiveDistortionsField} />
-                        <Form.Text>{cognitiveDistortions[0].example}</Form.Text> */}
                         {cognitiveDistortions.map((distortion, index) =>
                             <div key={`key-${distortion.name}`} className="mb-3">
                                 <Form.Check

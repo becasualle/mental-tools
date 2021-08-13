@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useGlobalContext } from '../context';
-import { Link, useParams } from 'react-router-dom'
-import { Container, Row, Col, Button, Card, Badge } from "react-bootstrap";
-
-
+import { useParams } from 'react-router-dom'
+import { Container, Row, Col, Badge } from "react-bootstrap";
 
 const Note = () => {
     const { notes } = useGlobalContext();
@@ -17,7 +15,7 @@ const Note = () => {
 
     if (note) {
         const { noteID, titleValue, triggerValue, emotionValue, emotionPowerValue, automaticThoughtsValue, cognitiveDistortionsValue, challengeThoughtsValue, alternativeThoughtsValue } = note;
-        console.log(cognitiveDistortionsValue);
+
         return (
             <Container className="my-5 px-4 px-sm-5 ">
                 <Row>

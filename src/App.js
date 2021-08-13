@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Error from './Pages/Error';
 import Notes from './Pages/Notes';
 import Note from './Pages/Note';
@@ -16,22 +16,22 @@ function App() {
     <Router>
       <Navigation />
       <Switch>
-        <Route exact path="/mental-tools">
+        <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/mental-tools/course">
+        <Route exact path="/course">
           <Course />
         </Route>
-        <Route exact path="/mental-tools/course/:id" children={<SingleCourse />} />
-        <Route exact path="/mental-tools/course/tackling-negative-thoughts/:id" children={<ArticleStandard />} />
-        <Route exact path="/mental-tools/course/cognitive-distortions/:id" children={<Article />} />
-        <Route exact path="/mental-tools/guide">
+        <Route exact path="/course/:id" children={<SingleCourse />} />
+        <Route exact path="/course/tackling-negative-thoughts/:id" children={<ArticleStandard />} />
+        <Route exact path="/course/cognitive-distortions/:id" children={<Article />} />
+        <Route exact path="/guide">
           <Guide />
         </Route>
-        <Route exact path="/mental-tools/notes">
+        <Route exact path="/notes">
           <Notes />
         </Route>
-        <Route exact path="/mental-tools/note/:id" children={<Note />} />
+        <Route exact path="/notes/note/:id" children={<Note />} />
 
         <Route path="*">
           <Error />

@@ -5,10 +5,13 @@ import { Container, Badge, Button } from 'react-bootstrap'
 const Error = () => {
     return (
         <Container>
-            <h1>
-                Упс! Ошибочка вышла.  <Badge bg="danger">Сорян :(</Badge>
-            </h1>
-            <Link to="/"><Button>Назад домой</Button></Link>
+            <section>
+                <h1>
+                    К сожалению, такой страницы не существует <Badge bg="danger">Ошибка</Badge>
+                </h1>
+                <Link to="/"><Button>Назад домой</Button></Link>
+            </section>
+
         </Container>
     )
 }
