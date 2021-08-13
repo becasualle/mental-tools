@@ -7,6 +7,8 @@ import Guide from "./Components/Guide";
 import Home from './Pages/Home';
 import Course from './Pages/Course';
 import Article from './Pages/Article';
+import ArticleStandard from './Pages/ArticleStandard';
+import SingleCourse from './Pages/SingleCourse';
 import Navigation from './Components/Navigation';
 
 function App() {
@@ -20,7 +22,9 @@ function App() {
         <Route exact path="/mental-tools/course">
           <Course />
         </Route>
-        <Route exact path="/mental-tools/article/:id" children={<Article />} />
+        <Route exact path="/mental-tools/course/:id" children={<SingleCourse />} />
+        <Route exact path="/mental-tools/course/tackling-negative-thoughts/:id" children={<ArticleStandard />} />
+        <Route exact path="/mental-tools/course/cognitive-distortions/:id" children={<Article />} />
         <Route exact path="/mental-tools/guide">
           <Guide />
         </Route>
