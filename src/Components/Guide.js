@@ -147,7 +147,7 @@ const Guide = () => {
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
-                    Submit
+                    Сохранить запись
                 </Button>
 
 

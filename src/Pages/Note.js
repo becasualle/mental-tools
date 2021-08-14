@@ -14,7 +14,7 @@ const Note = () => {
     }, [])
 
     if (note) {
-        const { noteID, titleValue, triggerValue, emotionValue, emotionPowerValue, automaticThoughtsValue, cognitiveDistortionsValue, challengeThoughtsValue, alternativeThoughtsValue } = note;
+        const { titleValue, triggerValue, emotionValue, emotionPowerValue, automaticThoughtsValue, cognitiveDistortionsValue, challengeThoughtsValue, alternativeThoughtsValue } = note;
 
         return (
             <Container className="my-5 px-4 px-sm-5 ">

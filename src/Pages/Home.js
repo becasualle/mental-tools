@@ -1,4 +1,4 @@
-import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Hero from '../Components/Hero'
 import CustomCards from "../Components/CustomCards";
 import Featurette from "../Components/Featurette";

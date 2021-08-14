@@ -11,8 +11,6 @@ const Article = () => {
     const articles = courses.find(course => course.courseID === courseID).courseArticles;
     // find article object by article id 
     const article = articles.find(article => article.id === id);
-    console.log(articles);
-    console.log(article);
 
     if (article) {
         return (

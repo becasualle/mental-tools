@@ -1,4 +1,4 @@
-import { Button, Modal, Form } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 import { useState } from 'react';
 import { courses } from '../data';
 
@@ -21,11 +21,11 @@ const CourseModal = ({ courseID }) => {
                 centered>
 
                 <Modal.Header closeButton>
-                    <Modal.Title id="contained-modal-title-vcenter" className="px-5">{currentCourse.courseTitle}</Modal.Title>
+                    <Modal.Title id="contained-modal-title-center" className="px-md-5">{currentCourse.courseTitle}</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body >
-                    {currentCourse.courseModalDesc.map(para => <p className="px-5">{para}</p>)}
+                    {currentCourse.courseModalDesc.map((para, index) => <p key={index} className="px-md-5">{para}</p>)}
 
                 </Modal.Body>
 

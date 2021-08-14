@@ -1,20 +1,19 @@
 import { courses } from "../data";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { useLocation, useParams, Link } from "react-router-dom";
+// import { useState, useEffect } from "react";
 
 
 const ArticleStandard = () => {
+
     const { id } = useParams();
     const location = useLocation();
     const { courseID } = location.state;
 
-    console.log(id);
-    console.log(courseID);
     // find course which we selected by courseID
     const articles = courses.find(course => course.courseID === courseID).courseArticles;
     // find article object by article id 
     const article = articles.find(article => article.id === id);
-
 
     if (article) {
         return (
@@ -33,8 +32,8 @@ const ArticleStandard = () => {
 
                             {article.content.map((piece, index) => {
                                 return (
-                                    <div>
-                                        <h3 className="h-4 pt-3" key={index}>{piece.subtitle}</h3>
+                                    <div key={index}>
+                                        <h3 className="h-4 pt-3" >{piece.subtitle}</h3>
                                         {
                                             piece.paragraphs.map((para, index) =>
                                                 <p className="fs-5 mt-3" key={index}>

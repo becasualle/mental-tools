@@ -2,7 +2,7 @@
 import Image from 'react-bootstrap/Image';
 import hero from '../img/hero.png';
 import { Link } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
+
 
 const Hero = () => {
 
@@ -18,10 +18,6 @@ const Hero = () => {
                     <div className="d-grid gap-2 d-md-flex justify-content-md-start">
                         <Link className="btn btn-primary btn-lg px-4 me-md-2" to={`/course`}>Попробовать</Link>
                         <Link className="btn btn-outline-secondary btn-lg px-4" to={`/course`}>Узнать больше</Link>
-                        {/* <HashLink to="/#details">Section three</HashLink> */}
-
-                        {/* <button type="button" className="btn btn-primary btn-lg px-4 me-md-2">Попробовать</button> */}
-
                     </div>
                 </div>
             </div>
