@@ -12,6 +12,7 @@ import SingleCourse from './Pages/SingleCourse';
 import Navigation from './Components/Navigation';
 
 function App() {
+  // set up routes using HashRouter in order to open and share each link in public version of App
   return (
     <Router>
       <Navigation />
@@ -32,15 +33,11 @@ function App() {
           <Notes />
         </Route>
         <Route exact path="/notes/note/:id" children={<Note />} />
-
         <Route path="*">
           <Error />
         </Route>
-
       </Switch>
     </Router>
-
-
   );
 }
 

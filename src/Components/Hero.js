@@ -1,11 +1,8 @@
-// import { Row, Col, Button } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
 import hero from '../img/hero.png';
 import { Link } from 'react-router-dom';
 
-
 const Hero = () => {
-
     return (
         <div className="container px-4 py-5">
             <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -22,7 +19,6 @@ const Hero = () => {
                 </div>
             </div>
         </div>
-
     );
 }
 

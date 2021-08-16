@@ -8,6 +8,7 @@ import { AppProvider } from './context';
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* provide data from context.js */}
     <AppProvider>
       <App />
     </AppProvider>

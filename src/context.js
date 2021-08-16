@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useEffect } from 'react';
 
-
+// get data from local storage and use as initial state
 const getLocalStorage = () => {
     let notes = localStorage.getItem('notes');
     if (notes) {
@@ -12,25 +12,15 @@ const getLocalStorage = () => {
 
 };
 
+// Provide context data to the App (wrapping in index.js)
 const AppContext = React.createContext();
 
-// const url = 'https://spreadsheets.google.com/feeds/cells/1EWnNdrY6GIjxPb6LOAMvr4mePyIDqaJ4Ph1D4qcLDeE/od6/public/basic?alt=json';
-
 const AppProvider = ({ children }) => {
+    console.log(children);
+    // create state for notes that user creates (adding new values logic in Guide.js)
     const [notes, setNotes] = useState(getLocalStorage());
 
-    // const fetchData = async () => {
-    //     try {
-    //         const response = await fetch(url);
-    //         const data = await response.json();
-    //         console.log(data)
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-
-    // useEffect(() => { fetchData() }, [url, fetchData]);
-
+    // user can delete one or all note-cards (logic in Note.js)
     const deleteCards = () => {
         setNotes([]);
     }
@@ -39,6 +29,7 @@ const AppProvider = ({ children }) => {
         setNotes(notes.filter(note => note.noteID !== id))
     }
 
+    // after first render and each time notes states changes, update data in local storage
     useEffect(() => { localStorage.setItem('notes', JSON.stringify(notes)) }, [notes]);
 
     return <AppContext.Provider value={{ notes, setNotes, deleteCards, deleteSingleCard }}> {children} </AppContext.Provider>

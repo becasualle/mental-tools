@@ -5,7 +5,7 @@ import Featurette from "../Components/Featurette";
 import Topics from "../Components/Topics";
 import HomeModal from "../Components/HomeModal"
 
-
+// Home page contains different content-based components
 const Home = () => {
     return (
         <Container fluid className="px-0">
@@ -14,9 +14,7 @@ const Home = () => {
             <Featurette />
             <Topics />
             <HomeModal />
-
         </Container>
-
     );
 }
 
