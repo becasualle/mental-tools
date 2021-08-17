@@ -2,7 +2,7 @@ import { Container } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import { courses } from "../data";
 
-
+// for each course in data.js we create jumobtorn 
 const Course = () => {
 
     return (
@@ -13,6 +13,7 @@ const Course = () => {
                         <div className="container-fluid py-5 ">
                             <h1 className="display-5 fw-bold">{course.courseTitle}</h1>
                             <p className="col-md-12 fs-5">{course.courseDescription}</p>
+                            {/* using url params */}
                             <Link className="btn btn-primary btn-lg" to={`/course/${course.courseID}`}>Изучить</Link>
                         </div>
                     </div>

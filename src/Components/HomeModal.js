@@ -1,7 +1,7 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import ModalComp from '../Components/ModalComp'
 
-
+// render modal section (modal content in ModalComp)
 const HomeModal = () => {
     return (
         <section className="bg-light">
@@ -12,15 +12,12 @@ const HomeModal = () => {
                 </div>
                 <Row className="justify-content-center">
                     <Col md={8} className="text-center">
-
                         <ModalComp />
                     </Col>
                 </Row>
 
             </Container>
         </section>
-
-
     );
 }
 

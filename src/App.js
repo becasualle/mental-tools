@@ -24,6 +24,7 @@ function App() {
           <Course />
         </Route>
         <Route exact path="/course/:id" children={<SingleCourse />} />
+        {/* use placeholder for dynamic url params values */}
         <Route exact path="/course/tackling-negative-thoughts/:id" children={<ArticleStandard />} />
         <Route exact path="/course/cognitive-distortions/:id" children={<Article />} />
         <Route exact path="/guide">

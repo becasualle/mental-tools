@@ -1,19 +1,18 @@
 import { Button, Modal, Form } from 'react-bootstrap';
 import { useState } from 'react';
 
-
 const ModalComp = () => {
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     return (
         <>
+            {/* when click show modal */}
             <Button variant="primary" onClick={handleShow}>
                 Оставить почту
             </Button>
-
+            {/* hide modal by buttons or close button */}
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Узнавайте об обновлениях</Modal.Title>

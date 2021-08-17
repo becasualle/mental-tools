@@ -5,12 +5,14 @@ import { Link } from "react-router-dom";
 import CourseModal from "../Components/CourseModal";
 
 const SingleCourse = () => {
+    // get course id using url params
     const { id } = useParams();
+    // find course by id and get it's properties
     const { courseID, courseTitle, courseDescription, courseArticles } = courses.find(course => course.courseID === id);
 
     return (
-
         <>
+            {/* modal section */}
             <section className="bg-light">
                 <Container className="text-center">
                     <Row>
@@ -24,10 +26,11 @@ const SingleCourse = () => {
                     </Row>
                 </Container>
             </section>
+            {/* cards section */}
             <Container className="my-5">
                 <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    {/* render card for each article */}
                     {courseArticles.map((article, index) => {
-
                         return (
                             <Col key={index}>
                                 <Card className="card shadow-sm">
@@ -41,8 +44,9 @@ const SingleCourse = () => {
                                         </Card.Text>
                                         <div className="d-flex justify-content-center align-items-center">
                                             <div className="btn-group w-100 pt-3">
-
+                                                {/* depending on course id link to diffetent paths */}
                                                 {courseID === 'tackling-negative-thoughts' ?
+                                                    // use reactrouter link to object in order to provide link and properties with course id
                                                     <Link className="btn btn-sm btn-outline-primary" to={{
                                                         pathname: `/course/tackling-negative-thoughts/${article.id}`,
                                                         state: {
@@ -69,10 +73,7 @@ const SingleCourse = () => {
                 </Row>
             </Container>
         </>
-
-
     );
-
 }
 
 export default SingleCourse;
