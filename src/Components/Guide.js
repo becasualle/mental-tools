@@ -3,9 +3,10 @@ import { Container, Form, Button, FloatingLabel } from "react-bootstrap";
 import { useGlobalContext } from "../context";
 import { useHistory } from "react-router-dom";
 
-
+// Analyze thought form
 const Guide = () => {
     const { notes, setNotes } = useGlobalContext();
+    // create reference for each input to store it's value
     const titleField = React.useRef('');
     const triggerField = React.useRef('');
     const emotionField = React.useRef('');
@@ -14,20 +15,21 @@ const Guide = () => {
     const challengeThoughtsField = React.useRef('');
     const alternativeThoughtsField = React.useRef('');
 
+    // use history to add route for each note
     let history = useHistory();
-
 
     const cognitiveDistortions = [
         { name: 'Катастрофизация', example: 'Что если случится худшее?' },
         { name: 'Черно-белое мышление', example: 'Я полный неудачник' },
         { name: 'Эмоциональное рассуждение', example: 'Я так чувствую, стало быть это правда' },
         { name: 'Усиление негатива', example: 'Я абсолютно все загубил ' },
-        { name: 'Минимизация позитива', example: 'Они так сказали просто из вежливости' },
-        { name: 'Поспешные выводы', example: 'Она со мной не поздаровалась, следовательно, она меня ненавидит' },
+        { name: 'Ментальный фильтр', example: 'Они так сказали просто из вежливости' },
+        { name: 'Навешивание ярлыков', example: 'Если я ошибся, значит, я идиот' },
         { name: 'Предсказание будущего', example: 'Я наверняка провалю мой экзамен' },
-        { name: 'Чтение мыслей', example: 'Он не хотел со мной говорить' },
-        { name: 'Обвинение себя', example: 'Это все я виноват' },
-        { name: 'Обвинение других', example: 'Это они во всем виноваты' }
+        { name: 'Чтение мыслей', example: 'Он думает, что я не справлюсь' },
+        { name: 'Персонализация', example: 'Это всё из-за меня' },
+        { name: 'Обвинение других', example: 'Это они во всем виноваты' },
+        { name: 'Чрезмерное обобщение', example: 'Мне вечно не везет' }
     ];
 
     // store active checkboxes values (instead of useRef)
@@ -35,15 +37,16 @@ const Guide = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-
-
+        // save value for each field to short variable
         const [titleValue, triggerValue, emotionValue, emotionPowerValue, automaticThoughtsValue, cognitiveDistortionsValue, challengeThoughtsValue, alternativeThoughtsValue] = [titleField.current.value, triggerField.current.value, emotionField.current.value, emotionPowerField.current.value, automaticThoughtsField.current.value, checkedDistortions, challengeThoughtsField.current.value, alternativeThoughtsField.current.value]
+        // create unique id for each note
         const noteID = new Date().getTime().toString();
+        // create new note object
         const newNote = { noteID, titleValue, triggerValue, emotionValue, emotionPowerValue, automaticThoughtsValue, cognitiveDistortionsValue, challengeThoughtsValue, alternativeThoughtsValue }
+        // update state with adding new note
         setNotes([...notes, newNote]);
-
+        // push route for created note 
         history.push(`/notes/note/${noteID}`)
-
     }
 
     return (
@@ -62,7 +65,6 @@ const Guide = () => {
                         style={{ height: '80px' }}
                         ref={triggerField}
                     />
-                    {/* <Form.Control type="Text" placeholder="Изложите факты о ситуации" ref={triggerField} /> */}
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="emotion">
@@ -88,18 +90,15 @@ const Guide = () => {
 
                 <Form.Group className="mb-3" controlId="automatic-thoughts">
                     <Form.Label>Автоматические мысли</Form.Label>
-
                     <Form.Control
                         as="textarea"
                         placeholder="Напишите мысли, которые возникли у вас в этой ситуации"
                         style={{ height: '80px' }}
                         ref={automaticThoughtsField}
                     />
-
                 </Form.Group>
 
                 <Form.Group className="my-4" controlId="cognitive-distortions">
-
                     <Form.Label className="d-block">Когнитивные искажения</Form.Label>
                     <Form.Text>Выберите те когнитивные искажения, которые вы нашли в своих автоматических мыслях:</Form.Text>
                     <Container className="mt-3">
@@ -120,20 +119,18 @@ const Guide = () => {
                             </div>
                         )}
                     </Container>
-
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="challenge-thoughts">
                     <Form.Label>Челлендж автоматических мыслей</Form.Label>
-
                     <Form.Control
                         as="textarea"
                         placeholder="Перечислите факты, опровергающие эти мысли"
                         style={{ height: '80px' }}
                         ref={challengeThoughtsField}
                     />
-
                 </Form.Group>
+
                 <Form.Group className="mb-3" controlId="alternative-thoughts">
                     <Form.Label>Альтернативные мысли</Form.Label>
 
@@ -143,14 +140,11 @@ const Guide = () => {
                         style={{ height: '80px' }}
                         ref={alternativeThoughtsField}
                     />
-
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
                     Сохранить запись
                 </Button>
-
-
 
             </Form>
 

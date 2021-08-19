@@ -2,8 +2,11 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import { Link, useParams, useLocation } from "react-router-dom";
 import { courses } from "../data";
 
+// Article for cognitive distortions
 const Article = () => {
+    // get article dynamic id value from link by useParams()
     const { id } = useParams();
+    // get course ID using state provided in Link
     const location = useLocation();
     const { courseID } = location.state;
 
@@ -25,7 +28,7 @@ const Article = () => {
                             <Image src={article.imgLink} fluid className="my-3" />
                             <p className="fs-5 mt-3">{article.description}</p>
                             <p className="fs-5 fw-bold">Примеры:</p>
-
+                            {/* for each example render list item */}
                             <ul>
                                 {article.examples.map((example, index) => <li key={index} className="fs-5">{example};</li>)}
                             </ul>
@@ -39,7 +42,6 @@ const Article = () => {
             </Container>
         );
     }
-
 
     return (
         <Container>

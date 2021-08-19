@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { useGlobalContext } from "../context";
 
+// show all notes that user have in local storage after working with Guide
 const Notes = () => {
     const { notes, deleteCards, deleteSingleCard } = useGlobalContext();
     return (
@@ -18,7 +19,6 @@ const Notes = () => {
                                 <Card>
                                     <Card.Header>{note.titleValue}</Card.Header>
                                     <Card.Body>
-
                                         <Card.Text>{note.triggerValue}</Card.Text>
                                         <div className="d-grid">
                                             <Button variant="outline-primary" size="sm" className="mt-2" as={Link} to={`/notes/note/${note.noteID}`} >Читать описание</Button>
@@ -32,6 +32,7 @@ const Notes = () => {
                     })}
                 </Row>
                 <Row md={3} className="justify-content-center">
+                    {/* show only if there is at least one note */}
                     {notes.length ? <Button variant="outline-danger" onClick={deleteCards}>Удалить все записи</Button> :
                         <div className="d-flex flex-column justify-content-center">
                             <p className="mt-3">К сожалению, вы еще не сделали ни одной записи :( </p>

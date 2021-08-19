@@ -1,11 +1,10 @@
 import { courses } from "../data";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { useLocation, useParams, Link } from "react-router-dom";
-// import { useState, useEffect } from "react";
 
-
+// Article for tackling negative thoughts
 const ArticleStandard = () => {
-
+    // get id's same as in Article.js
     const { id } = useParams();
     const location = useLocation();
     const { courseID } = location.state;
