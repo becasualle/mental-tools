@@ -1,9 +1,9 @@
 import { Container } from "react-bootstrap";
-import Hero from '../Components/Hero'
-import CustomCards from "../Components/CustomCards";
-import Featurette from "../Components/Featurette";
-import Topics from "../Components/Topics";
-import HomeModal from "../Components/HomeModal"
+import Hero from '../Components/HomePage/Hero'
+import CustomCards from "../Components/HomePage/CustomCards";
+import Featurette from "../Components/HomePage/Featurette";
+import Topics from "../Components/HomePage/Topics";
+import HomeModal from "../Components/HomePage/HomeModal"
 
 // Home page contains different content-based components
 const Home = () => {

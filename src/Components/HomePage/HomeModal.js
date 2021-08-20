@@ -1,5 +1,5 @@
 import { Container, Row, Col } from 'react-bootstrap';
-import ModalComp from '../Components/ModalComp'
+import ModalComp from './ModalComp'
 
 // render modal section (modal content in ModalComp)
 const HomeModal = () => {

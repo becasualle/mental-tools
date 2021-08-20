@@ -1,5 +1,5 @@
 import { Container, Accordion, Row, Col, Image } from "react-bootstrap";
-import workImg from '../img/inwork.png'
+import workImg from '../../img/inwork.png';
 
 // render accordion with image
 const Topics = () => {

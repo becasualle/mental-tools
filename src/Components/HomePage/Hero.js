@@ -1,5 +1,5 @@
 import Image from 'react-bootstrap/Image';
-import hero from '../img/hero.png';
+import hero from '../../img/hero.png';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {

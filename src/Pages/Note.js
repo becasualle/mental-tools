@@ -11,7 +11,7 @@ const Note = () => {
     useEffect(() => {
         const newNote = notes.find(note => note.noteID === id);
         setNote(newNote)
-    }, [])
+    }, [note])
 
     if (note) {
         const { titleValue, triggerValue, emotionValue, emotionPowerValue, automaticThoughtsValue, cognitiveDistortionsValue, challengeThoughtsValue, alternativeThoughtsValue } = note;
